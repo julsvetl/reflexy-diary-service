@@ -1,0 +1,53 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+   <changeSet author="ysvetlichnaya" id="1">
+      <createTable tableName="dr_activity_category">
+         <column name="id" type="bigint">
+            <constraints primaryKey="true"/>
+         </column>
+         <column name="title" type="TEXT">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+      <createSequence sequenceName="seq_dr_activity_category" startValue="1"/>
+   </changeSet>
+   <changeSet author="ysvetlichnaya" id="2">
+      <createTable tableName="dr_activity">
+         <column name="id" type="bigint">
+            <constraints primaryKey="true"/>
+         </column>
+         <column name="title" type="TEXT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="category_id" type="bigint">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+      <createSequence sequenceName="seq_dr_activity" startValue="1"/>
+   </changeSet>
+   <changeSet author="ysvetlichnaya" id="3">
+      <createTable tableName="dr_story">
+         <column name="id" type="bigint">
+            <constraints primaryKey="true"/>
+         </column>
+         <column name="user_id" type="bigint">
+            <constraints nullable="false"/>
+         </column>
+         <column name="title" type="TEXT">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+      <createSequence sequenceName="seq_dr_story" startValue="1"/>
+   </changeSet>
+   <changeSet author="ysvetlichnaya" id="4">
+      <createTable tableName="dr_story_activity">
+         <column name="story_id" type="bigint">
+            <constraints nullable="false"/>
+         </column>
+         <column name="activity_id" type="bigint">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+</databaseChangeLog>
